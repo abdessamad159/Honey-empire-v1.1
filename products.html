@@ -184,12 +184,31 @@
 
             <div class="filter-group">
                 <h3>التقييم</h3>
-                <div class="filter-option" onclick="filterRating(4)">
                     <i class="fas fa-star" style="color: var(--primary-gold)"></i>
                     <span>4 نجوم وأكثر</span>
                 </div>
                 <div class="filter-option" onclick="filterRating(3)">
                     <i class="fas fa-star" style="color: var(--primary-gold)"></i>
+                    <span>3 نجوم وأكثر</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <div style="display: flex; flex-direction: column; width: 100%;">
+            <div class="products" id="products-container">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+            
+            <div id="pagination-container" class="pagination-container"></div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button class="close-cart">&times;</button>
         </div>
         <div class="cart-items" id="cart-items">
             <!-- Cart items will be dynamically loaded here -->
@@ -201,7 +220,6 @@
             </div>
             <div class="total-row">
                 <span>الشحن:</span>
-                <span id="shipping">0 ر.س</span>
             </div>
             <div class="total-row total-final">
                 <span>الإجمالي:</span>
