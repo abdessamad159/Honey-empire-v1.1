@@ -96,8 +96,7 @@ function renderProducts(productsToRender) {
     container.innerHTML = productsToRender.map(product => `
         <div class="product-card">
             ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-            <div class="product-img" onclick="window.location.href='product-details.html?id=${product.id}'" style="cursor: pointer;">
-                <i class="${product.image}"></i>
+            <div class="product-img" onclick="window.location.href='product-details.html?id=${product.id}'" style="cursor: pointer; background-image: url('${product.image}'); background-size: cover; background-position: center;">
             </div>
             <div class="product-info">
                 <h3 onclick="window.location.href='product-details.html?id=${product.id}'" style="cursor: pointer;">${product.name}</h3>

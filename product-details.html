@@ -326,8 +326,7 @@
             if (product) {
                 container.innerHTML = `
                     <div class="product-details-container">
-                        <div class="product-gallery">
-                            <i class="${product.image}"></i>
+                        <div class="product-gallery" style="background-image: url('${product.image}'); background-size: cover; background-position: center;">
                         </div>
                         <div class="product-info-detail">
                             ${product.badge ? `<span style="background: var(--warning); color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px;">${product.badge}</span>` : ''}
