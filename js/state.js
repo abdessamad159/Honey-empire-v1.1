@@ -10,6 +10,10 @@ class Store {
                 priceRange: { min: 0, max: 1000 },
                 minRating: 0
             },
+            pagination: {
+                currentPage: 1,
+                itemsPerPage: 8
+            },
             loading: false,
             error: null
         };
@@ -45,6 +49,15 @@ class Store {
     // Actions
     setProducts(products) {
         this.setState({ products });
+    }
+
+    setPage(page) {
+        this.setState({ 
+            pagination: { 
+                ...this.state.pagination, 
+                currentPage: page 
+            } 
+        });
     }
 
     addToCart(product) {
@@ -96,6 +109,10 @@ class Store {
             filters: {
                 ...this.state.filters,
                 [filterType]: value
+            },
+            pagination: {
+                ...this.state.pagination,
+                currentPage: 1 // Reset to first page on filter change
             }
         });
     }
@@ -135,6 +152,21 @@ class Store {
 
             return matchesCategory && matchesSearch && matchesPrice && matchesRating;
         });
+    }
+
+    getPaginatedProducts() {
+        const filtered = this.getFilteredProducts();
+        const { currentPage, itemsPerPage } = this.state.pagination;
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        
+        return {
+            products: filtered.slice(start, end),
+            totalItems: filtered.length,
+            totalPages: Math.ceil(filtered.length / itemsPerPage),
+            currentPage,
+            itemsPerPage
+        };
     }
 
     getCartTotal() {

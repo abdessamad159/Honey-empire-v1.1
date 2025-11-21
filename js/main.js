@@ -1,5 +1,6 @@
 import { store } from './state.js';
 import { products } from './products-data.js';
+import { renderPagination } from './pagination.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
@@ -15,14 +16,14 @@ function initializeApp() {
         updateNotification(state);
         // Only update products if we are on a page that displays them
         if (document.getElementById('products-container')) {
-            renderProducts(store.getFilteredProducts());
+            renderProducts();
         }
     });
 
     // Initial Render
     updateCartUI(store.state);
     if (document.getElementById('products-container')) {
-        renderProducts(store.getFilteredProducts());
+        renderProducts();
     }
 
     // Setup Global Event Listeners
@@ -89,9 +90,17 @@ function setupEventListeners() {
     window.checkout = () => alert('جاري تحويلك لصفحة الدفع...');
 }
 
-function renderProducts(productsToRender) {
+function renderProducts() {
     const container = document.getElementById('products-container');
     if (!container) return;
+
+    const { products: productsToRender } = store.getPaginatedProducts();
+
+    if (productsToRender.length === 0) {
+        container.innerHTML = '<div class="no-products">لا توجد منتجات تطابق بحثك</div>';
+        renderPagination('pagination-container');
+        return;
+    }
 
     container.innerHTML = productsToRender.map(product => `
         <div class="product-card">
@@ -121,6 +130,8 @@ function renderProducts(productsToRender) {
             </div>
         </div>
     `).join('');
+    
+    renderPagination('pagination-container');
 }
 
 function updateCartUI(state) {
@@ -145,7 +156,7 @@ function updateCartUI(state) {
     cartItemsContainer.innerHTML = state.cart.map(item => `
         <div class="cart-item">
             <div class="cart-item-img">
-                <i class="${item.image}"></i>
+                <div style="width: 100%; height: 100%; background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
             </div>
             <div class="cart-item-details">
                 <h4>${item.name}</h4>
