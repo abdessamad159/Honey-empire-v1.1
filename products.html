@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
     <style>
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/product-3.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -98,39 +99,36 @@
                     <i class="fas fa-crown"></i>
                     <h1>Honey Empire</h1>
                 </div>
-                
                 <div class="search-bar">
-                    <input type="text" placeholder="ابحث عن عسل السدر، المانوكا، الزهور...">
+                    <input type="text" placeholder="ابحث عن منتج...">
                     <button><i class="fas fa-search"></i></button>
                 </div>
-                
                 <div class="user-actions">
-                    <a href="#" id="login-btn">
-                        <i class="fas fa-user"></i>
-                        <span>تسجيل الدخول</span>
-                    </a>
-                    <a href="#" id="register-btn">
-                        <i class="fas fa-user-plus"></i>
-                        <span>إنشاء حساب</span>
-                    </a>
-                    <a href="#" id="cart-btn">
+                    <div class="dropdown">
+                        <button class="icon-btn" id="account-btn">
+                            <i class="far fa-user"></i>
+                            <span>حسابي</span>
+                        </button>
+                        <div class="dropdown-content" id="account-dropdown">
+                            <a href="#" id="login-btn">تسجيل الدخول</a>
+                            <a href="#" id="register-btn">إنشاء حساب</a>
+                        </div>
+                    </div>
+                    <button class="icon-btn" id="cart-btn">
                         <i class="fas fa-shopping-cart"></i>
-                        <span>سلة الشراء</span>
-                        <span class="cart-count">0</span>
-                    </a>
+                        <span class="badge" id="cart-count">0</span>
+                    </button>
                 </div>
             </div>
-            
             <nav>
-                <ul>
-                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
-                    <li><a href="products.html" class="nav-link active">جميع المنتجات</a></li>
+                <ul class="nav-links">
+                    <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
                     <li><a href="products.html?category=sider" class="nav-link">عسل السدر</a></li>
                     <li><a href="products.html?category=flowers" class="nav-link">عسل الزهور</a></li>
                     <li><a href="products.html?category=manuka" class="nav-link">عسل المانوكا</a></li>
                     <li><a href="products.html?category=gifts" class="nav-link">هدايا العسل</a></li>
-                    <li><a href="#about" class="nav-link">من نحن</a></li>
-                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                    <li><a href="index.html#about" class="nav-link">من نحن</a></li>
+                    <li><a href="index.html#contact" class="nav-link">اتصل بنا</a></li>
                 </ul>
             </nav>
         </div>
@@ -139,70 +137,75 @@
     <!-- Page Header -->
     <div class="page-header">
         <div class="container">
-            <h2>جميع المنتجات</h2>
-            <p>تصفح مجموعتنا الكاملة من العسل الطبيعي الفاخر</p>
+            <h1>جميع المنتجات</h1>
+            <p>تصفح مجموعتنا الكاملة من العسل الطبيعي والمنتجات الفاخرة</p>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="container products-layout">
-        <!-- Filters Sidebar -->
-        <aside class="filters-sidebar">
-            <div class="filter-group">
-                <h3>التصنيفات</h3>
-                <div class="filter-option" onclick="filterProducts(null)">
-                    <i class="fas fa-th-large"></i>
-                    <span>الكل</span>
+    <section class="container">
+        <div class="products-layout">
+            <!-- Sidebar Filters -->
+            <aside class="filters-sidebar">
+                <div class="filter-group">
+                    <h3>الفئات</h3>
+                    <div class="filter-option" onclick="window.location.href='products.html'">
+                        <input type="radio" name="category" checked>
+                        <span>الكل</span>
+                    </div>
+                    <div class="filter-option" onclick="filterProducts('sider')">
+                        <input type="radio" name="category">
+                        <span>عسل السدر</span>
+                    </div>
+                    <div class="filter-option" onclick="filterProducts('flowers')">
+                        <input type="radio" name="category">
+                        <span>عسل الزهور</span>
+                    </div>
+                    <div class="filter-option" onclick="filterProducts('manuka')">
+                        <input type="radio" name="category">
+                        <span>عسل المانوكا</span>
+                    </div>
+                    <div class="filter-option" onclick="filterProducts('gifts')">
+                        <input type="radio" name="category">
+                        <span>هدايا العسل</span>
+                    </div>
                 </div>
-                <div class="filter-option" onclick="filterProducts('sider')">
-                    <i class="fas fa-tree"></i>
-                    <span>عسل السدر</span>
-                </div>
-                <div class="filter-option" onclick="filterProducts('flowers')">
-                    <i class="fas fa-flower"></i>
-                    <span>عسل الزهور</span>
-                </div>
-                <div class="filter-option" onclick="filterProducts('manuka')">
-                    <i class="fas fa-leaf"></i>
-                    <span>عسل المانوكا</span>
-                </div>
-                <div class="filter-option" onclick="filterProducts('clover')">
-                    <i class="fas fa-seedling"></i>
-                    <span>عسل البرسيم</span>
-                </div>
-            </div>
 
-            <div class="filter-group">
-                <h3>السعر</h3>
-                <div class="price-inputs">
-                    <input type="number" placeholder="من" id="min-price">
-                    <span>-</span>
-                    <input type="number" placeholder="إلى" id="max-price">
+                <div class="filter-group">
+                    <h3>نطاق السعر</h3>
+                    <div class="price-inputs">
+                        <input type="number" placeholder="من" id="min-price">
+                        <input type="number" placeholder="إلى" id="max-price">
+                    </div>
+                    <button class="btn" style="width: 100%; margin-top: 10px; padding: 8px;" onclick="applyPriceFilter()">تطبيق</button>
                 </div>
-                <button class="btn" style="width: 100%; margin-top: 10px; padding: 8px; font-size: 14px;" onclick="applyPriceFilter()">تطبيق</button>
-            </div>
 
-            <div class="filter-group">
-                <h3>التقييم</h3>
-                    <i class="fas fa-star" style="color: var(--primary-gold)"></i>
-                    <span>4 نجوم وأكثر</span>
+                <div class="filter-group">
+                    <h3>التقييم</h3>
+                    <div class="filter-option" onclick="filterRating(5)">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <span>5 نجوم</span>
+                    </div>
+                    <div class="filter-option" onclick="filterRating(4)">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <span>4 نجوم وأكثر</span>
+                    </div>
+                    <div class="filter-option" onclick="filterRating(3)">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <span>3 نجوم وأكثر</span>
+                    </div>
                 </div>
-                <div class="filter-option" onclick="filterRating(3)">
-                    <i class="fas fa-star" style="color: var(--primary-gold)"></i>
-                    <span>3 نجوم وأكثر</span>
-                </div>
-            </div>
-        </aside>
+            </aside>
 
-        <!-- Products Grid -->
-        <div style="display: flex; flex-direction: column; width: 100%;">
-            <div class="products" id="products-container">
-                <!-- Products will be dynamically loaded here -->
+            <!-- Products Grid -->
+            <div class="products-content">
+                <div class="products" id="products-container">
+                    <!-- Products will be loaded here -->
+                </div>
+                <div id="pagination-container" class="pagination-container"></div>
             </div>
-            
-            <div id="pagination-container" class="pagination-container"></div>
         </div>
-    </div>
+    </section>
 
     <!-- Shopping Cart Sidebar -->
     <div class="cart-sidebar" id="cart-sidebar">
@@ -220,6 +223,7 @@
             </div>
             <div class="total-row">
                 <span>الشحن:</span>
+                <span id="shipping">0 ر.س</span>
             </div>
             <div class="total-row total-final">
                 <span>الإجمالي:</span>
@@ -306,10 +310,12 @@
                     <h3>Honey Empire</h3>
                     <p>إمبراطورية العسل الفاخر تقدم أجود أنواع العسل الطبيعي من مختلف أنحاء العالم بجودة لا تضاهى وطعم لا يُنسى.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1A3HitD8RM/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/abdessamad159" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.freelancer.com/u/Abdessamadguia15" target="_blank" title="Freelancer"><i class="fas fa-briefcase"></i></a>
+                        <a href="https://khamsat.com/user/abdessamad_guia" target="_blank" title="Khamsat"><i class="fas fa-handshake"></i></a>
+                        <a href="https://mostaql.com/u/Abdessamad_gui1" target="_blank" title="Mostaql"><i class="fas fa-laptop-code"></i></a>
                     </div>
                 </div>
                 
@@ -339,15 +345,15 @@
                     <h3>اتصل بنا</h3>
                     <ul>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +966 12 345 6789</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> info@honeyempire.com</a></li>
+                        <li><a href="tel:+2127789463"><i class="fas fa-phone"></i> +212 778-9463</a></li>
+                        <li><a href="mailto:abdessamadguia11@gmail.com"><i class="fas fa-envelope"></i> abdessamadguia11@gmail.com</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> ٩ ص - ١١ م</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>جميع الحقوق محفوظة &copy; 2023 Honey Empire - إمبراطورية العسل الفاخر</p>
+                <p>جميع الحقوق محفوظة &copy; 2025 Honey Empire - إمبراطورية العسل الفاخر</p>
             </div>
         </div>
     </footer>
@@ -374,5 +380,20 @@
             store.setFilter('minRating', rating);
         };
     </script>
+
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div class="modal-images">
+          <img src="images/product-3.jpg" alt="Product image 1" class="modal-img" />
+          <img src="images/product-4.jpg" alt="Product image 2" class="modal-img" />
+          <img src="images/product-6.jpg" alt="Product image 3" class="modal-img" />
+        </div>
+        <p id="modal-description"></p>
+        <p id="modal-price"></p>
+        <button class="add-to-cart" onclick="addToCartFromModal()">أضف إلى السلة</button>
+      </div>
+    </div>
 </body>
 </html>

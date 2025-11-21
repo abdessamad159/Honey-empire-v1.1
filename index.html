@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -24,32 +25,29 @@
                     <i class="fas fa-crown"></i>
                     <h1>Honey Empire</h1>
                 </div>
-                
                 <div class="search-bar">
-                    <input type="text" placeholder="ابحث عن عسل السدر، المانوكا، الزهور...">
+                    <input type="text" placeholder="ابحث عن منتج...">
                     <button><i class="fas fa-search"></i></button>
                 </div>
-                
                 <div class="user-actions">
-                    <a href="#" id="login-btn">
-                        <i class="fas fa-user"></i>
-                        <span>تسجيل الدخول</span>
-                    </a>
-                    <a href="#" id="register-btn">
-                        <i class="fas fa-user-plus"></i>
-                        <span>إنشاء حساب</span>
-                    </a>
-                    <a href="#" id="cart-btn">
+                    <div class="dropdown">
+                        <button class="icon-btn" id="account-btn">
+                            <i class="far fa-user"></i>
+                            <span>حسابي</span>
+                        </button>
+                        <div class="dropdown-content" id="account-dropdown">
+                            <a href="#" id="login-btn">تسجيل الدخول</a>
+                            <a href="#" id="register-btn">إنشاء حساب</a>
+                        </div>
+                    </div>
+                    <button class="icon-btn" id="cart-btn">
                         <i class="fas fa-shopping-cart"></i>
-                        <span>سلة الشراء</span>
-                        <span class="cart-count">0</span>
-                    </a>
+                        <span class="badge" id="cart-count">0</span>
+                    </button>
                 </div>
             </div>
-            
             <nav>
-                <ul>
-                    <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
+                <ul class="nav-links">
                     <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
                     <li><a href="products.html?category=sider" class="nav-link">عسل السدر</a></li>
                     <li><a href="products.html?category=flowers" class="nav-link">عسل الزهور</a></li>
@@ -222,10 +220,12 @@
                     <h3>Honey Empire</h3>
                     <p>إمبراطورية العسل الفاخر تقدم أجود أنواع العسل الطبيعي من مختلف أنحاء العالم بجودة لا تضاهى وطعم لا يُنسى.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1A3HitD8RM/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/abdessamad159" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.freelancer.com/u/Abdessamadguia15" target="_blank" title="Freelancer"><i class="fas fa-briefcase"></i></a>
+                        <a href="https://khamsat.com/user/abdessamad_guia" target="_blank" title="Khamsat"><i class="fas fa-handshake"></i></a>
+                        <a href="https://mostaql.com/u/Abdessamad_gui1" target="_blank" title="Mostaql"><i class="fas fa-laptop-code"></i></a>
                     </div>
                 </div>
                 
@@ -255,8 +255,8 @@
                     <h3>اتصل بنا</h3>
                     <ul>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +966 12 345 6789</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> info@honeyempire.com</a></li>
+                        <li><a href="tel:+2127789463"><i class="fas fa-phone"></i> +212 778-9463</a></li>
+                        <li><a href="mailto:abdessamadguia11@gmail.com"><i class="fas fa-envelope"></i> abdessamadguia11@gmail.com</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> ٩ ص - ١١ م</a></li>
                     </ul>
                 </div>

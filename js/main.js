@@ -2,6 +2,11 @@ import { store } from './state.js';
 import { products } from './products-data.js';
 import { renderPagination } from './pagination.js';
 
+function getRandomProductImage() {
+  const imgs = ['images/product-3.jpg', 'images/product-4.jpg'];
+  return imgs[Math.floor(Math.random() * imgs.length)];
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
 });
@@ -105,39 +110,52 @@ function renderProducts() {
     container.innerHTML = productsToRender.map(product => `
         <div class="product-card">
             ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-            <div class="product-img" onclick="window.location.href='product-details.html?id=${product.id}'" style="cursor: pointer; background-image: url('${product.image}'); background-size: cover; background-position: center;">
-            </div>
+            <div class="product-img" onclick="openProductModal(${product.id})" style="cursor:pointer; background-image: url('${getRandomProductImage()}'); background-size:cover; background-position:center;"></div>
             <div class="product-info">
-                <h3 onclick="window.location.href='product-details.html?id=${product.id}'" style="cursor: pointer;">${product.name}</h3>
+                <h3 onclick="openProductModal(${product.id})" style="cursor:pointer;">${product.name}</h3>
                 <p>${product.description}</p>
                 <div class="product-price">
                     <div>
                         <span class="price">${product.price} ر.س</span>
                         ${product.oldPrice ? `<span class="old-price">${product.oldPrice} ر.س</span>` : ''}
                     </div>
-                    <div class="rating">
-                        ${generateStarRating(product.rating)}
-                    </div>
+                    <div class="rating">${generateStarRating(product.rating)}</div>
                 </div>
                 <div class="product-actions">
-                    <button class="add-to-cart" onclick="addToCart(${product.id})">
-                        أضف إلى السلة
-                    </button>
-                    <button class="wishlist">
-                        <i class="far fa-heart"></i>
-                    </button>
+                    <button class="add-to-cart" onclick="addToCart(${product.id})">أضف إلى السلة</button>
+                    <button class="wishlist"><i class="far fa-heart"></i></button>
                 </div>
             </div>
-        </div>
-    `).join('');
-    
+        </div>`).join('');
+
     renderPagination('pagination-container');
 }
 
-function updateCartUI(state) {
-    const cartCount = document.querySelector('.cart-count');
-    if (cartCount) cartCount.textContent = store.getCartCount();
+// Modal functions
+function openProductModal(id) {
+    const product = products.find(p => p.id === id);
+    if (!product) return;
+    document.getElementById('modal-title').textContent = product.name;
+    document.getElementById('modal-description').textContent = product.description;
+    document.getElementById('modal-price').textContent = `${product.price} ر.س`;
+    // static images as requested
+    const imgs = document.querySelectorAll('.modal-img');
+    imgs.forEach((img, i) => {
+        img.src = i % 2 === 1 ? 'images/product-4.jpg' : 'images/product-3.jpg';
+    });
+    document.getElementById('product-modal').classList.remove('hidden');
+}
+function closeProductModal() {
+    document.getElementById('product-modal').classList.add('hidden');
+}
+window.addToCartFromModal = () => {
+    const title = document.getElementById('modal-title').textContent;
+    const prod = products.find(p => p.name === title);
+    if (prod) addToCart(prod.id);
+    closeProductModal();
+};
 
+function updateCartUI(state) {
     const cartItemsContainer = document.getElementById('cart-items');
     const subtotalEl = document.getElementById('subtotal');
     const shippingEl = document.getElementById('shipping');
@@ -166,12 +184,9 @@ function updateCartUI(state) {
                     <span>${item.quantity}</span>
                     <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
                 </div>
-                <button class="remove-item" onclick="removeFromCart(${item.id})">
-                    <i class="fas fa-trash"></i> إزالة
-                </button>
+                <button class="remove-item" onclick="removeFromCart(${item.id})"><i class="fas fa-trash"></i> إزالة</button>
             </div>
-        </div>
-    `).join('');
+        </div>`).join('');
 
     const subtotal = store.getCartTotal();
     const shipping = subtotal > 200 ? 0 : 25;
@@ -181,6 +196,9 @@ function updateCartUI(state) {
     if (shippingEl) shippingEl.textContent = `${shipping} ر.س`;
     if (totalEl) totalEl.textContent = `${total} ر.س`;
 }
+
+
+
 
 function updateNotification(state) {
     const notification = document.getElementById('notification');
