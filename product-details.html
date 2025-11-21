@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج - Honey Empire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-details-container {
+            margin-top: 50px;
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .product-gallery {
+            height: 500px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-brown);
+            font-size: 150px;
+        }
+
+        .product-info-detail h1 {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 15px;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .product-price-detail {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .product-actions-detail {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .quantity-selector button {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--primary-brown);
+        }
+
+        .quantity-selector input {
+            width: 50px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .product-details-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-gallery {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <h2 style="color: white;">Honey Empire</h2>
+        <p style="color: #ddd;">جاري تحميل التفاصيل...</p>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-crown"></i>
+                    <h1>Honey Empire</h1>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن عسل السدر، المانوكا، الزهور...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="#" id="login-btn">
+                        <i class="fas fa-user"></i>
+                        <span>تسجيل الدخول</span>
+                    </a>
+                    <a href="#" id="register-btn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>إنشاء حساب</span>
+                    </a>
+                    <a href="#" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>سلة الشراء</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
+                    <li><a href="products.html?category=sider" class="nav-link">عسل السدر</a></li>
+                    <li><a href="products.html?category=flowers" class="nav-link">عسل الزهور</a></li>
+                    <li><a href="products.html?category=manuka" class="nav-link">عسل المانوكا</a></li>
+                    <li><a href="products.html?category=gifts" class="nav-link">هدايا العسل</a></li>
+                    <li><a href="#about" class="nav-link">من نحن</a></li>
+                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Details Content -->
+    <div class="container" id="product-details-container">
+        <!-- Content will be loaded dynamically -->
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>سلة التسوق</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-total">
+            <div class="total-row">
+                <span>المجموع:</span>
+                <span id="subtotal">0 ر.س</span>
+            </div>
+            <div class="total-row">
+                <span>الشحن:</span>
+                <span id="shipping">0 ر.س</span>
+            </div>
+            <div class="total-row total-final">
+                <span>الإجمالي:</span>
+                <span id="total">0 ر.س</span>
+            </div>
+        </div>
+        <button class="checkout-btn" onclick="checkout()">إتمام الشراء</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="auth-container">
+        <div class="auth-form">
+            <button class="close-btn">&times;</button>
+            <h2>تسجيل الدخول</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">كلمة المرور</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox"> تذكرني
+                    </label>
+                    <a href="#">نسيت كلمة المرور؟</a>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;"><span>تسجيل الدخول</span></button>
+            </form>
+            <div class="auth-switch">
+                <p>ليس لديك حساب؟ <a href="#" id="switch-to-register">إنشاء حساب جديد</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Form -->
+    <div id="register-form" class="auth-container">
+        <div class="auth-form">
+            <button class="close-btn">&times;</button>
+            <h2>إنشاء حساب جديد</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="register-name">الاسم الكامل</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">البريد الإلكتروني</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">كلمة المرور</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">تأكيد كلمة المرور</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" required> أوافق على <a href="#">شروط الاستخدام</a> و <a href="#">سياسة الخصوصية</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;"><span>إنشاء الحساب</span></button>
+            </form>
+            <div class="auth-switch">
+                <p>لديك حساب بالفعل؟ <a href="#" id="switch-to-login">تسجيل الدخول</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text"></span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Honey Empire</h3>
+                    <p>إمبراطورية العسل الفاخر تقدم أجود أنواع العسل الطبيعي من مختلف أنحاء العالم بجودة لا تضاهى وطعم لا يُنسى.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> جميع المنتجات</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> عروض خاصة</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الشحن والتوصيل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> دليل أنواع العسل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> هدايا الشركات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +966 12 345 6789</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@honeyempire.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> ٩ ص - ١١ م</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 Honey Empire - إمبراطورية العسل الفاخر</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { store } from './js/state.js';
+        import { products } from './js/products-data.js';
+        import './js/main.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            const product = products.find(p => p.id === productId);
+
+            const container = document.getElementById('product-details-container');
+
+            if (product) {
+                container.innerHTML = `
+                    <div class="product-details-container">
+                        <div class="product-gallery">
+                            <i class="${product.image}"></i>
+                        </div>
+                        <div class="product-info-detail">
+                            ${product.badge ? `<span style="background: var(--warning); color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px;">${product.badge}</span>` : ''}
+                            <h1>${product.name}</h1>
+                            <div class="product-meta">
+                                <span><i class="fas fa-star" style="color: var(--primary-gold)"></i> ${product.rating} تقييم</span>
+                                <span><i class="fas fa-box"></i> متوفر: ${product.stock} قطعة</span>
+                            </div>
+                            <div class="product-price-detail">
+                                ${product.price} ر.س
+                                ${product.oldPrice ? `<span style="text-decoration: line-through; color: #999; font-size: 1.5rem; margin-right: 15px;">${product.oldPrice} ر.س</span>` : ''}
+                            </div>
+                            <div class="product-description">
+                                <p>${product.description}</p>
+                                <p>هذا العسل طبيعي 100% وتم فحصه مخبرياً للتأكد من جودته ونقائه. يتم تعبئته وفق أعلى معايير الجودة لضمان وصوله إليكم بحالته الطبيعية.</p>
+                            </div>
+                            <div class="product-actions-detail">
+                                <div class="quantity-selector">
+                                    <button onclick="decreaseQty()">-</button>
+                                    <input type="text" value="1" id="qty-input" readonly>
+                                    <button onclick="increaseQty()">+</button>
+                                </div>
+                                <button class="btn" onclick="addToCartWithQty(${product.id})">أضف إلى السلة</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = '<div style="text-align: center; padding: 100px;"><h2>المنتج غير موجود</h2><a href="products.html" class="btn" style="margin-top: 20px;">العودة للمنتجات</a></div>';
+            }
+        });
+
+        window.increaseQty = () => {
+            const input = document.getElementById('qty-input');
+            input.value = parseInt(input.value) + 1;
+        };
+
+        window.decreaseQty = () => {
+            const input = document.getElementById('qty-input');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        };
+
+        window.addToCartWithQty = (id) => {
+            const qty = parseInt(document.getElementById('qty-input').value);
+            const product = products.find(p => p.id === id);
+            // Simple hack to add multiple times for now, ideally store should support adding with quantity
+            for(let i=0; i<qty; i++) {
+                store.addToCart(product);
+            }
+        };
+    </script>
+</body>
+</html>
