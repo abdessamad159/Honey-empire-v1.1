@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة التسوق - Honey Empire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
+    <style>
+        .cart-page {
+            padding: 120px 0 80px;
+            min-height: 80vh;
+            background: #f9f9f9;
+        }
+
+        .cart-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        .cart-list {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .cart-header-title {
+            font-size: 1.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 120px 100px 50px;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-row:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-details h3 {
+            font-size: 1.1rem;
+            color: var(--primary-brown);
+            margin-bottom: 5px;
+        }
+
+        .cart-item-details p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-brown);
+            font-size: 1rem;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: var(--primary-brown);
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .remove-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-summary {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 25px;
+            height: fit-content;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .summary-total {
+            border-top: 2px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-brown);
+        }
+
+        .checkout-btn-page {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-gold);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .checkout-btn-page:hover {
+            background: var(--primary-brown);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cart-item-row {
+                grid-template-columns: 80px 1fr;
+                grid-template-rows: auto auto;
+                gap: 10px;
+            }
+            
+            .quantity-controls {
+                grid-column: 2;
+            }
+            
+            .item-price {
+                grid-column: 2;
+            }
+            
+            .remove-btn {
+                grid-column: 2;
+                justify-self: start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-crown"></i>
+                    <h1>Honey Empire</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن منتج...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="account.html" class="icon-btn" id="account-btn">
+                        <i class="far fa-user"></i>
+                        <span>حسابي</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
+                    <li><a href="products.html?category=sider" class="nav-link">عسل السدر</a></li>
+                    <li><a href="products.html?category=flowers" class="nav-link">عسل الزهور</a></li>
+                    <li><a href="products.html?category=manuka" class="nav-link">عسل المانوكا</a></li>
+                    <li><a href="products.html?category=gifts" class="nav-link">هدايا العسل</a></li>
+                    <li><a href="index.html#about" class="nav-link">من نحن</a></li>
+                    <li><a href="index.html#contact" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="cart-page">
+        <div class="container">
+            <div class="cart-container">
+                <!-- Cart Items List -->
+                <div class="cart-list">
+                    <h2 class="cart-header-title">سلة التسوق</h2>
+                    <div id="cart-items-container">
+                        <!-- Items will be loaded here -->
+                        <div class="empty-cart">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>جاري تحميل السلة...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h2 class="cart-header-title">ملخص الطلب</h2>
+                    <div class="summary-row">
+                        <span>المجموع الفرعي</span>
+                        <span id="summary-subtotal">0 ر.س</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>الشحن</span>
+                        <span id="summary-shipping">0 ر.س</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>الإجمالي</span>
+                        <span id="summary-total">0 ر.س</span>
+                    </div>
+                    <button class="checkout-btn-page" onclick="alert('جاري الانتقال للدفع...')">إتمام الشراء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Honey Empire</h3>
+                    <p>إمبراطورية العسل الفاخر تقدم أجود أنواع العسل الطبيعي من مختلف أنحاء العالم بجودة لا تضاهى وطعم لا يُنسى.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1A3HitD8RM/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/abdessamad159" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.freelancer.com/u/Abdessamadguia15" target="_blank" title="Freelancer"><i class="fas fa-briefcase"></i></a>
+                        <a href="https://khamsat.com/user/abdessamad_guia" target="_blank" title="Khamsat"><i class="fas fa-handshake"></i></a>
+                        <a href="https://mostaql.com/u/Abdessamad_gui1" target="_blank" title="Mostaql"><i class="fas fa-laptop-code"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="index.html#about"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> جميع المنتجات</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> عروض خاصة</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الشحن والتوصيل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> دليل أنواع العسل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> هدايا الشركات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
+                        <li><a href="tel:+2127789463"><i class="fas fa-phone"></i> +212 778-9463</a></li>
+                        <li><a href="mailto:abdessamadguia11@gmail.com"><i class="fas fa-envelope"></i> abdessamadguia11@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> ٩ ص - ١١ م</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 Honey Empire - إمبراطورية العسل الفاخر</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        // Cart Logic
+        async function loadCart() {
+            const container = document.getElementById('cart-items-container');
+            try {
+                const cart = await window.ApiService.getCart();
+                
+                if (cart.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>سلة التسوق فارغة</p>
+                            <a href="products.html" class="btn" style="margin-top: 20px;">تصفح المنتجات</a>
+                        </div>
+                    `;
+                    updateSummary(0);
+                    return;
+                }
+
+                let html = '';
+                let subtotal = 0;
+
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    html += `
+                        <div class="cart-item-row">
+                            <div class="cart-item-img">
+                                <img src="${item.image}" alt="${item.name}">
+                            </div>
+                            <div class="cart-item-details">
+                                <h3>${item.name}</h3>
+                                <p>${item.price} ر.س</p>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="qty-btn" onclick="updateQty('${item.id}', -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+                            </div>
+                            <div class="item-price">
+                                ${itemTotal} ر.س
+                            </div>
+                            <button class="remove-btn" onclick="removeItem('${item.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+                updateSummary(subtotal);
+                document.getElementById('cart-count').textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = '<p style="text-align:center; color:red;">حدث خطأ أثناء تحميل السلة</p>';
+            }
+        }
+
+        function updateSummary(subtotal) {
+            const shipping = subtotal > 0 ? 25 : 0;
+            const total = subtotal + shipping;
+
+            document.getElementById('summary-subtotal').textContent = subtotal + ' ر.س';
+            document.getElementById('summary-shipping').textContent = shipping + ' ر.س';
+            document.getElementById('summary-total').textContent = total + ' ر.س';
+        }
+
+        window.updateQty = async (id, change) => {
+            await window.ApiService.updateCartQuantity(id, change);
+            loadCart();
+        };
+
+        window.removeItem = async (id) => {
+            if(confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+                await window.ApiService.removeFromCart(id);
+                loadCart();
+            }
+        };
+
+        // Initial Load
+        document.addEventListener('DOMContentLoaded', loadCart);
+    </script>
+</body>
+</html>

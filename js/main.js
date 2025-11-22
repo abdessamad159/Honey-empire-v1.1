@@ -63,20 +63,11 @@ function setupEventListeners() {
     }
 
     // Auth Modals (Simplified for now)
-    const loginBtn = document.getElementById('login-btn');
-    const registerBtn = document.getElementById('register-btn');
+    // The login/register buttons now navigate to account.html, so we don't need these listeners here.
+    // Keeping the close logic just in case we use modals elsewhere, or removing if strictly not needed.
+    // For now, removing the specific login/register button listeners to avoid errors if elements are missing.
+    
     const closeBtns = document.querySelectorAll('.close-btn');
-
-    if (loginBtn) loginBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('login-form').style.display = 'flex';
-    });
-
-    if (registerBtn) registerBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('register-form').style.display = 'flex';
-    });
-
     closeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.auth-container').forEach(c => c.style.display = 'none');
