@@ -14,6 +14,22 @@ function initializeApp() {
     // Initialize Store
     store.setProducts(products);
 
+    // Check URL parameters for filters
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const filterParam = urlParams.get('filter');
+
+    if (categoryParam) {
+        store.setFilter('category', categoryParam);
+    }
+    
+    if (filterParam === 'offers') {
+        store.setFilter('offersOnly', true);
+        // Update page title or UI if needed
+        const sectionTitle = document.querySelector('.section-title h2');
+        if (sectionTitle) sectionTitle.textContent = 'عروض خاصة';
+    }
+
     // Dropdown Toggle Logic
     const dropdownToggles = document.querySelectorAll('.nav-item .nav-link');
     

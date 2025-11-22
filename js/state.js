@@ -8,7 +8,8 @@ class Store {
                 category: null,
                 search: '',
                 priceRange: { min: 0, max: 1000 },
-                minRating: 0
+                minRating: 0,
+                offersOnly: false
             },
             pagination: {
                 currentPage: 1,
@@ -149,8 +150,9 @@ class Store {
             const matchesPrice = product.price >= this.state.filters.priceRange.min && 
                                product.price <= this.state.filters.priceRange.max;
             const matchesRating = product.rating >= this.state.filters.minRating;
+            const matchesOffers = !this.state.filters.offersOnly || (product.oldPrice && product.oldPrice > product.price);
 
-            return matchesCategory && matchesSearch && matchesPrice && matchesRating;
+            return matchesCategory && matchesSearch && matchesPrice && matchesRating && matchesOffers;
         });
     }
 

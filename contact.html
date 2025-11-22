@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - Honey Empire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
+    <style>
+        /* Page Specific Styles matching Honey Empire Theme */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 60px 0px 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+
+        /* Contact Layout */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        /* Contact Info Items */
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-icon {
+            background-color: #fff9e6;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--primary-brown);
+        }
+
+        .info-text p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-brown);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-brown);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: var(--transition);
+            background: #fcfcfc;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-gold);
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary-brown), var(--dark-black));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, var(--primary-gold), var(--primary-brown));
+            transform: translateY(-2px);
+        }
+
+        /* Map */
+        .map-section {
+            margin-bottom: 60px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 5px solid white;
+            height: 450px;
+        }
+
+        .map-container {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: #fff9e6;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-brown);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #fcfcfc;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s;
+            color: var(--primary-gold);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Hours Table */
+        .hours-table {
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border-collapse: collapse;
+            margin-bottom: 60px;
+        }
+
+        .hours-table tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        .hours-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table .day {
+            font-weight: bold;
+            color: var(--primary-brown);
+            width: 40%;
+        }
+
+        .hours-table .time {
+            text-align: left;
+            color: var(--primary-gold);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-crown"></i>
+                    <h1>Honey Empire</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن منتج...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="account.html" class="icon-btn" id="account-btn">
+                        <i class="far fa-user"></i>
+                        <span>حسابي</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">أصناف العسل <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=sider" class="dropdown-item">عسل السدر</a>
+                            <a href="products.html?category=flowers" class="dropdown-item">عسل الزهور</a>
+                            <a href="products.html?category=manuka" class="dropdown-item">عسل المانوكا</a>
+                        </div>
+                    </li>
+                    <li><a href="offers.html" class="nav-link">عروض خاصة</a></li>
+                    <li><a href="about.html" class="nav-link">من نحن</a></li>
+                    <li><a href="contact.html" class="nav-link active">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>تواصل معنا</h1>
+            <p>نحن هنا للإجابة على استفساراتك وتلقي ملاحظاتك. لا تتردد في التواصل معنا</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="container">
+        <div class="contact-content">
+            <!-- Contact Info -->
+            <div class="contact-card">
+                <h2 style="margin-bottom: 30px; color: var(--primary-brown); text-align: center;">معلومات الاتصال</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>عنوان المتجر</h3>
+                        <p>حي العليا، شارع الملك فهد<br>الرياض، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>هاتف المتجر</h3>
+                        <p>+966 12 345 6789</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-text">
+                        <h3>البريد الإلكتروني</h3>
+                        <p>info@honey-empire.com</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-card">
+                <h2 style="margin-bottom: 30px; color: var(--primary-brown); text-align: center;">أرسل رسالة</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">الاسم الكامل</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">البريد الإلكتروني</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="subject">موضوع الرسالة</label>
+                        <input type="text" class="form-control" id="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">الرسالة</label>
+                        <textarea class="form-control" id="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>موقعنا على الخريطة</h2>
+        </div>
+        <div class="map-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.692837563067!2d46.67529631500371!3d24.71355198412263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1623164825635!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>الأسئلة الشائعة</h2>
+            </div>
+            <div class="faq-container">
+                <!-- Question 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كيف يمكنني التأكد من جودة العسل؟</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نضمن جودة عسلنا من خلال مصادر موثوقة وشهادات الجودة المعتمدة. جميع منتجاتنا تخضع لفحوصات الجودة قبل التعبئة والتغليف.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ما هي مدة التوصيل؟</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>مدة التوصيل داخل الرياض من 24 إلى 48 ساعة، وللمدن الأخرى من 3 إلى 5 أيام عمل. نقدم خدمة التوصيل السريع برسوم إضافية.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل تقدمون شحن مجاني؟</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم شحن مجاني لجميع الطلبات التي تزيد عن 200 ريال سعودي داخل الرياض. للطلبات خارج الرياض، الشحن المجاني للطلبات فوق 300 ريال.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كيف يمكنني استرجاع منتج؟</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكنك استرجاع المنتج خلال 7 أيام من استلامه بشرط أن يكون في حالته الأصلية وغير مفتوح. يرجى التواصل مع خدمة العملاء لبدء عملية الاسترجاع.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل تقدمون هدايا corporate؟</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم خصومات خاصة للكميات الكبيرة وهدايا الشركات. يرجى التواصل مع قسم المبيعات للحصول على عرض سعر مخصص لاحتياجاتك.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>ساعات العمل</h2>
+        </div>
+        <table class="hours-table">
+            <tr>
+                <td class="day">السبت - الخميس</td>
+                <td class="time">9:00 ص - 10:00 م</td>
+            </tr>
+            <tr>
+                <td class="day">الجمعة</td>
+                <td class="time">4:00 م - 10:00 م</td>
+            </tr>
+            <tr>
+                <td class="day">العطل الرسمية</td>
+                <td class="time">مغلق</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Honey Empire</h3>
+                    <p>إمبراطورية العسل الفاخر تقدم أجود أنواع العسل الطبيعي من مختلف أنحاء العالم بجودة لا تضاهى وطعم لا يُنسى.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1A3HitD8RM/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/abdessamad159" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.freelancer.com/u/Abdessamadguia15" target="_blank" title="Freelancer"><i class="fas fa-briefcase"></i></a>
+                        <a href="https://khamsat.com/user/abdessamad_guia" target="_blank" title="Khamsat"><i class="fas fa-handshake"></i></a>
+                        <a href="https://mostaql.com/u/Abdessamad_gui1" target="_blank" title="Mostaql"><i class="fas fa-laptop-code"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> جميع المنتجات</a></li>
+                        <li><a href="offers.html"><i class="fas fa-chevron-left"></i> عروض خاصة</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الشحن والتوصيل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> دليل أنواع العسل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> هدايا الشركات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
+                        <li><a href="tel:+2127789463"><i class="fas fa-phone"></i> +212 778-9463</a></li>
+                        <li><a href="mailto:abdessamadguia11@gmail.com"><i class="fas fa-envelope"></i> abdessamadguia11@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> ٩ ص - ١١ م</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 Honey Empire - إمبراطورية العسل الفاخر</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/state.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لتواصلكم! سنرد على رسالتكم في أقرب وقت ممكن.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
