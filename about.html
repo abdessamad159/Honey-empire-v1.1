@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن - Honey Empire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍯</text></svg>">
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1478483612136-2b03236d2ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+
+        .story-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .story-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .values-section {
+            background: #f9f9f9;
+            padding: 80px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card i {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <i class="fas fa-crown"></i>
+                    <h1>Honey Empire</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="ابحث عن منتج...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="account.html" class="icon-btn" id="account-btn">
+                        <i class="far fa-user"></i>
+                        <span>حسابي</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">أصناف العسل <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=sider" class="dropdown-item">عسل السدر</a>
+                            <a href="products.html?category=flowers" class="dropdown-item">عسل الزهور</a>
+                            <a href="products.html?category=manuka" class="dropdown-item">عسل المانوكا</a>
+                        </div>
+                    </li>
+                    <li><a href="products.html?category=gifts" class="nav-link">عروض خاصة</a></li>
+                    <li><a href="about.html" class="nav-link active">من نحن</a></li>
+                    <li><a href="index.html#contact" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>قصة إمبراطورية العسل</h1>
+            <p>شغفنا هو تقديم أنقى وأجود أنواع العسل الطبيعي من الطبيعة مباشرة إليك</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>من نحن</h2>
+                    <p>تأسست "Honey Empire" برؤية بسيطة ولكنها طموحة: إعادة تعريف تجربة تذوق العسل. نحن نؤمن بأن العسل ليس مجرد منتج غذائي، بل هو هدية من الطبيعة تحمل في طياتها فوائد صحية لا حصر لها وطعماً فريداً يعكس تنوع البيئة التي يأتي منها.</p>
+                    <p>نحن نسافر حول العالم للبحث عن أفضل المناحل التي تلتزم بأعلى معايير الجودة والاستدامة. من جبال السدر في اليمن إلى حقول الزهور البرية في أوروبا، ومن غابات المانوكا في نيوزيلندا، نختار بعناية كل قطرة عسل لنضمن لك تجربة لا تُنسى.</p>
+                    <p>في إمبراطورية العسل، الجودة هي وعدنا. نحن نفخر بتقديم منتجات طبيعية 100%، خالية من أي إضافات أو مواد حافظة، لتستمتع بطعم الطبيعة كما خلقه الله.</p>
+                </div>
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="عسل طبيعي">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem; color: var(--primary-brown);">قيمنا</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>الجودة العالية</h3>
+                    <p>نلتزم بتقديم عسل طبيعي 100%، خاضع لأدق فحوصات الجودة لضمان نقائه وفوائده.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>الاستدامة</h3>
+                    <p>نحرص على دعم الممارسات البيئية المستدامة في تربية النحل والحفاظ على الطبيعة.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>الثقة والشفافية</h3>
+                    <p>نبني علاقتنا مع عملائنا على الصدق والشفافية، ونقدم معلومات دقيقة عن مصادر منتجاتنا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Honey Empire</h3>
+                    <p>إمبراطورية العسل الفاخر تقدم أجود أنواع العسل الطبيعي من مختلف أنحاء العالم بجودة لا تضاهى وطعم لا يُنسى.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/1A3HitD8RM/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/abdeasg?igsh=MWw0NG1rZ3oyeGpmYw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/abdessamad159" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.freelancer.com/u/Abdessamadguia15" target="_blank" title="Freelancer"><i class="fas fa-briefcase"></i></a>
+                        <a href="https://khamsat.com/user/abdessamad_guia" target="_blank" title="Khamsat"><i class="fas fa-handshake"></i></a>
+                        <a href="https://mostaql.com/u/Abdessamad_gui1" target="_blank" title="Mostaql"><i class="fas fa-laptop-code"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-left"></i> جميع المنتجات</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> عروض خاصة</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الشحن والتوصيل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> دليل أنواع العسل</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> هدايا الشركات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</a></li>
+                        <li><a href="tel:+2127789463"><i class="fas fa-phone"></i> +212 778-9463</a></li>
+                        <li><a href="mailto:abdessamadguia11@gmail.com"><i class="fas fa-envelope"></i> abdessamadguia11@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> ٩ ص - ١١ م</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 Honey Empire - إمبراطورية العسل الفاخر</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        // Update Cart Count
+        async function updateCartCount() {
+            try {
+                const cart = await window.ApiService.getCart();
+                document.getElementById('cart-count').textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
+</body>
+</html>

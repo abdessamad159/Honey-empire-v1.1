@@ -28,17 +28,38 @@
                 <div class="search-bar">
                     <input type="text" placeholder="ابحث عن منتج...">
                     <button><i class="fas fa-search"></i></button>
-                    <li><a href="products.html?category=sider" class="nav-link">عسل السدر</a></li>
-                    <li><a href="products.html?category=flowers" class="nav-link">عسل الزهور</a></li>
-                    <li><a href="products.html?category=manuka" class="nav-link">عسل المانوكا</a></li>
-                    <li><a href="products.html?category=gifts" class="nav-link">هدايا العسل</a></li>
-                    <li><a href="#about" class="nav-link">من نحن</a></li>
-                    <li><a href="#contact" class="nav-link">اتصل بنا</a></li>
+                </div>
+                <div class="user-actions">
+                    <a href="account.html" class="icon-btn" id="account-btn">
+                        <i class="far fa-user"></i>
+                        <span>حسابي</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="products.html" class="nav-link">جميع المنتجات</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">أصناف العسل <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=sider" class="dropdown-item">عسل السدر</a>
+                            <a href="products.html?category=flowers" class="dropdown-item">عسل الزهور</a>
+                            <a href="products.html?category=manuka" class="dropdown-item">عسل المانوكا</a>
+                        </div>
+                    </li>
+                    <li><a href="products.html?category=gifts" class="nav-link">عروض خاصة</a></li>
+                    <li><a href="about.html" class="nav-link">من نحن</a></li>
+                    <li><a href="index.html#contact" class="nav-link">اتصل بنا</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
+    
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
