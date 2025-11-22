@@ -6,7 +6,7 @@ export const products = [
         price: 149,
         oldPrice: 179,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-1.jpg",
         rating: 4.5,
         stock: 15,
         badge: "الأكثر مبيعاً"
@@ -18,7 +18,7 @@ export const products = [
         price: 299,
         oldPrice: 349,
         category: "manuka",
-        image: "images/product-4.jpg",
+        image: "images/product-2.jpg",
         rating: 5,
         stock: 8,
         badge: "مميز"
@@ -54,7 +54,7 @@ export const products = [
         price: 199,
         oldPrice: 229,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-5.jpg",
         rating: 4.8,
         stock: 12,
         badge: "عضوي"
@@ -66,7 +66,7 @@ export const products = [
         price: 159,
         oldPrice: 189,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-6.jpg",
         rating: 4.3,
         stock: 18,
         badge: null
@@ -78,7 +78,7 @@ export const products = [
         price: 139,
         oldPrice: null,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-7.jpg",
         rating: 4.6,
         stock: 30,
         badge: "جديد"
@@ -90,7 +90,7 @@ export const products = [
         price: 189,
         oldPrice: 219,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-8.jpg",
         rating: 4.7,
         stock: 10,
         badge: "فاخر"
@@ -102,7 +102,7 @@ export const products = [
         price: 199,
         oldPrice: null,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-9.jpg",
         rating: 4.4,
         stock: 22,
         badge: null
@@ -114,7 +114,7 @@ export const products = [
         price: 599,
         oldPrice: 699,
         category: "manuka",
-        image: "images/product-4.jpg",
+        image: "images/product-10.jpg",
         rating: 5,
         stock: 5,
         badge: "نادر"
@@ -126,7 +126,7 @@ export const products = [
         price: 89,
         oldPrice: 109,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-11.jpg",
         rating: 4.2,
         stock: 40,
         badge: "عرض"
@@ -138,7 +138,7 @@ export const products = [
         price: 129,
         oldPrice: null,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-1.jpg",
         rating: 4.5,
         stock: 15,
         badge: null
@@ -150,7 +150,7 @@ export const products = [
         price: 79,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-2.jpg",
         rating: 4.9,
         stock: 25,
         badge: "طبيعي"
@@ -162,7 +162,7 @@ export const products = [
         price: 399,
         oldPrice: 499,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-3.jpg",
         rating: 5,
         stock: 10,
         badge: "هدية"
@@ -174,7 +174,7 @@ export const products = [
         price: 249,
         oldPrice: 299,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-4.jpg",
         rating: 4.8,
         stock: 12,
         badge: null
@@ -186,7 +186,7 @@ export const products = [
         price: 169,
         oldPrice: 199,
         category: "sider",
-        image: "images/product-4.jpg",
+        image: "images/product-5.jpg",
         rating: 4.4,
         stock: 18,
         badge: null
@@ -198,7 +198,7 @@ export const products = [
         price: 25,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-6.jpg",
         rating: 4.5,
         stock: 100,
         badge: null
@@ -210,7 +210,7 @@ export const products = [
         price: 145,
         oldPrice: null,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-7.jpg",
         rating: 4.6,
         stock: 20,
         badge: null
@@ -222,7 +222,7 @@ export const products = [
         price: 115,
         oldPrice: 135,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-8.jpg",
         rating: 4.3,
         stock: 30,
         badge: "صحي"
@@ -234,7 +234,7 @@ export const products = [
         price: 89,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-9.jpg",
         rating: 4.7,
         stock: 50,
         badge: "تجربة"
@@ -247,7 +247,7 @@ export const products = [
         price: 452,
         oldPrice: 529,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-10.jpg",
         rating: 4.1,
         stock: 82,
         badge: 'مميز'
@@ -259,7 +259,7 @@ export const products = [
         price: 122,
         oldPrice: 179,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-11.jpg",
         rating: 4.7,
         stock: 68,
         badge: 'مميز'
@@ -271,7 +271,7 @@ export const products = [
         price: 146,
         oldPrice: 218,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-1.jpg",
         rating: 4.4,
         stock: 60,
         badge: 'مميز'
@@ -283,7 +283,7 @@ export const products = [
         price: 195,
         oldPrice: 231,
         category: "manuka",
-        image: "images/product-4.jpg",
+        image: "images/product-2.jpg",
         rating: 3.8,
         stock: 62,
         badge: 'عرض'
@@ -319,7 +319,7 @@ export const products = [
         price: 82,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-5.jpg",
         rating: 3.8,
         stock: 43,
         badge: 'جديد'
@@ -331,7 +331,7 @@ export const products = [
         price: 197,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-6.jpg",
         rating: 4.6,
         stock: 7,
         badge: 'عرض'
@@ -343,7 +343,7 @@ export const products = [
         price: 247,
         oldPrice: null,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-7.jpg",
         rating: 4.1,
         stock: 66,
         badge: 'جديد'
@@ -355,7 +355,7 @@ export const products = [
         price: 488,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-8.jpg",
         rating: 5.0,
         stock: 78,
         badge: null
@@ -367,7 +367,7 @@ export const products = [
         price: 112,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-9.jpg",
         rating: 4.5,
         stock: 66,
         badge: 'عرض'
@@ -379,7 +379,7 @@ export const products = [
         price: 53,
         oldPrice: 92,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-10.jpg",
         rating: 4.0,
         stock: 96,
         badge: 'مميز'
@@ -391,7 +391,7 @@ export const products = [
         price: 87,
         oldPrice: 125,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-11.jpg",
         rating: 4.6,
         stock: 85,
         badge: 'عرض'
@@ -403,7 +403,7 @@ export const products = [
         price: 157,
         oldPrice: 254,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-1.jpg",
         rating: 4.6,
         stock: 81,
         badge: 'عرض'
@@ -415,7 +415,7 @@ export const products = [
         price: 228,
         oldPrice: null,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-2.jpg",
         rating: 3.9,
         stock: 9,
         badge: 'مميز'
@@ -451,7 +451,7 @@ export const products = [
         price: 481,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-5.jpg",
         rating: 4.1,
         stock: 55,
         badge: 'جديد'
@@ -463,7 +463,7 @@ export const products = [
         price: 359,
         oldPrice: 430,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-6.jpg",
         rating: 4.5,
         stock: 12,
         badge: 'جديد'
@@ -475,7 +475,7 @@ export const products = [
         price: 268,
         oldPrice: 342,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-7.jpg",
         rating: 3.5,
         stock: 2,
         badge: null
@@ -487,7 +487,7 @@ export const products = [
         price: 247,
         oldPrice: null,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-8.jpg",
         rating: 4.9,
         stock: 72,
         badge: 'جديد'
@@ -499,7 +499,7 @@ export const products = [
         price: 200,
         oldPrice: null,
         category: "clover",
-        image: "images/product-4.jpg",
+        image: "images/product-9.jpg",
         rating: 4.6,
         stock: 73,
         badge: 'جديد'
@@ -511,7 +511,7 @@ export const products = [
         price: 312,
         oldPrice: 380,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-10.jpg",
         rating: 4.6,
         stock: 89,
         badge: 'مميز'
@@ -523,7 +523,7 @@ export const products = [
         price: 383,
         oldPrice: 405,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-11.jpg",
         rating: 3.6,
         stock: 33,
         badge: 'مميز'
@@ -535,7 +535,7 @@ export const products = [
         price: 450,
         oldPrice: 543,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-1.jpg",
         rating: 4.2,
         stock: 70,
         badge: 'جديد'
@@ -547,7 +547,7 @@ export const products = [
         price: 479,
         oldPrice: null,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-2.jpg",
         rating: 3.7,
         stock: 98,
         badge: 'مميز'
@@ -571,7 +571,7 @@ export const products = [
         price: 500,
         oldPrice: 586,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-4.jpg",
         rating: 3.9,
         stock: 68,
         badge: null
@@ -583,7 +583,7 @@ export const products = [
         price: 189,
         oldPrice: null,
         category: "manuka",
-        image: "images/product-4.jpg",
+        image: "images/product-5.jpg",
         rating: 4.8,
         stock: 99,
         badge: null
@@ -595,7 +595,7 @@ export const products = [
         price: 324,
         oldPrice: 396,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-6.jpg",
         rating: 4.5,
         stock: 64,
         badge: 'جديد'
@@ -607,7 +607,7 @@ export const products = [
         price: 470,
         oldPrice: 558,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-7.jpg",
         rating: 3.9,
         stock: 71,
         badge: null
@@ -619,7 +619,7 @@ export const products = [
         price: 169,
         oldPrice: 216,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-8.jpg",
         rating: 4.9,
         stock: 11,
         badge: null
@@ -631,7 +631,7 @@ export const products = [
         price: 65,
         oldPrice: null,
         category: "clover",
-        image: "images/product-4.jpg",
+        image: "images/product-9.jpg",
         rating: 4.4,
         stock: 5,
         badge: 'جديد'
@@ -643,7 +643,7 @@ export const products = [
         price: 305,
         oldPrice: null,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-10.jpg",
         rating: 4.6,
         stock: 6,
         badge: 'جديد'
@@ -655,7 +655,7 @@ export const products = [
         price: 171,
         oldPrice: 199,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-11.jpg",
         rating: 3.6,
         stock: 39,
         badge: null
@@ -667,7 +667,7 @@ export const products = [
         price: 315,
         oldPrice: 336,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-1.jpg",
         rating: 4.1,
         stock: 61,
         badge: null
@@ -679,7 +679,7 @@ export const products = [
         price: 70,
         oldPrice: 113,
         category: "clover",
-        image: "images/product-4.jpg",
+        image: "images/product-2.jpg",
         rating: 3.9,
         stock: 47,
         badge: 'مميز'
@@ -691,7 +691,7 @@ export const products = [
         price: 445,
         oldPrice: 529,
         category: "clover",
-        image: "images/product-4.jpg",
+        image: "images/product-3.jpg",
         rating: 4.1,
         stock: 94,
         badge: 'عرض'
@@ -703,7 +703,7 @@ export const products = [
         price: 58,
         oldPrice: 140,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-4.jpg",
         rating: 4.8,
         stock: 7,
         badge: 'جديد'
@@ -715,7 +715,7 @@ export const products = [
         price: 478,
         oldPrice: null,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-5.jpg",
         rating: 3.9,
         stock: 1,
         badge: 'مميز'
@@ -727,7 +727,7 @@ export const products = [
         price: 481,
         oldPrice: 504,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-6.jpg",
         rating: 4.6,
         stock: 24,
         badge: null
@@ -739,7 +739,7 @@ export const products = [
         price: 410,
         oldPrice: 460,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-7.jpg",
         rating: 5.0,
         stock: 22,
         badge: null
@@ -751,7 +751,7 @@ export const products = [
         price: 454,
         oldPrice: null,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-8.jpg",
         rating: 4.6,
         stock: 53,
         badge: null
@@ -763,7 +763,7 @@ export const products = [
         price: 444,
         oldPrice: 530,
         category: "clover",
-        image: "images/product-4.jpg",
+        image: "images/product-9.jpg",
         rating: 4.2,
         stock: 39,
         badge: 'مميز'
@@ -775,7 +775,7 @@ export const products = [
         price: 350,
         oldPrice: 450,
         category: "clover",
-        image: "images/product-3.jpg",
+        image: "images/product-10.jpg",
         rating: 4.0,
         stock: 2,
         badge: 'عرض'
@@ -787,7 +787,7 @@ export const products = [
         price: 431,
         oldPrice: 496,
         category: "gifts",
-        image: "images/product-4.jpg",
+        image: "images/product-11.jpg",
         rating: 4.6,
         stock: 99,
         badge: null
@@ -799,7 +799,7 @@ export const products = [
         price: 263,
         oldPrice: null,
         category: "gifts",
-        image: "images/product-3.jpg",
+        image: "images/product-1.jpg",
         rating: 3.5,
         stock: 74,
         badge: 'مميز'
@@ -811,7 +811,7 @@ export const products = [
         price: 353,
         oldPrice: null,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-2.jpg",
         rating: 4.9,
         stock: 22,
         badge: 'عرض'
@@ -835,7 +835,7 @@ export const products = [
         price: 151,
         oldPrice: null,
         category: "sider",
-        image: "images/product-3.jpg",
+        image: "images/product-4.jpg",
         rating: 4.4,
         stock: 5,
         badge: 'جديد'
@@ -846,7 +846,7 @@ export const products = [
         description: "يتميز بنكهة فريدة ورائحة زكية، يعتبر خياراً مثالياً للهدايا.",
         price: 306,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-5.jpg",
         rating: 4.3,
         stock: 17,
     },
@@ -857,7 +857,7 @@ export const products = [
         price: 120,
         oldPrice: 168,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-6.jpg",
         rating: 4.9,
         stock: 48,
     },
@@ -867,7 +867,7 @@ export const products = [
         description: "عسل فاخر ذو قوام كثيف وطعم لا يقاوم، مثالي للاستخدام اليومي.",
         price: 165,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-7.jpg",
         rating: 4.8,
         stock: 17,
     },
@@ -878,7 +878,7 @@ export const products = [
         price: 349,
         oldPrice: 372,
         category: "manuka",
-        image: "images/product-4.jpg",
+        image: "images/product-8.jpg",
         rating: 4.5,
         stock: 40,
         badge: "جديد",
@@ -890,7 +890,7 @@ export const products = [
         price: 111,
         oldPrice: 144,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-9.jpg",
         rating: 5.0,
         stock: 15,
         badge: "جديد",
@@ -901,7 +901,7 @@ export const products = [
         description: "عسل طبيعي 100% يتميز بطعمه الغني وفوائده الصحية المتعددة.",
         price: 293,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-10.jpg",
         rating: 3.8,
         stock: 4,
     },
@@ -912,7 +912,7 @@ export const products = [
         price: 262,
         oldPrice: 328,
         category: "manuka",
-        image: "images/product-3.jpg",
+        image: "images/product-11.jpg",
         rating: 4.6,
         stock: 32,
     },
@@ -923,7 +923,7 @@ export const products = [
         price: 375,
         oldPrice: 468,
         category: "sider",
-        image: "images/product-4.jpg",
+        image: "images/product-1.jpg",
         rating: 4.5,
         stock: 49,
         badge: "جديد",
@@ -934,7 +934,7 @@ export const products = [
         description: "عسل فاخر ذو قوام كثيف وطعم لا يقاوم، مثالي للاستخدام اليومي.",
         price: 175,
         category: "flowers",
-        image: "images/product-3.jpg",
+        image: "images/product-2.jpg",
         rating: 3.9,
         stock: 1,
         badge: "عرض خاص",
@@ -945,7 +945,7 @@ export const products = [
         description: "عسل طبيعي 100% يتميز بطعمه الغني وفوائده الصحية المتعددة.",
         price: 122,
         category: "flowers",
-        image: "images/product-4.jpg",
+        image: "images/product-3.jpg",
         rating: 4.2,
         stock: 25,
     }
