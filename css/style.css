@@ -276,12 +276,18 @@ nav a:hover {
 
 .dropdown-item {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     color: var(--dark-black);
     text-decoration: none;
     transition: var(--transition);
     font-size: 1rem;
     border-bottom: 1px solid #f5f5f5;
+    
+    /* Reset inherited nav a styles to fix visibility */
+    background: transparent;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
 }
 
 .dropdown-item:last-child {
@@ -291,7 +297,11 @@ nav a:hover {
 .dropdown-item:hover {
     background: #fff8e1;
     color: var(--primary-brown);
-    padding-right: 25px; /* Slight movement on hover */
+    padding-right: 25px;
+    
+    /* Ensure text remains visible on hover */
+    -webkit-text-fill-color: var(--primary-brown);
+    border-right: 3px solid var(--primary-gold); /* Visual indicator */
 }
 
 /* Hero Section */
