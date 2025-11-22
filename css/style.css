@@ -239,6 +239,61 @@ nav a:hover {
     -webkit-text-fill-color: transparent;
 }
 
+/* Mega Menu / Dropdown */
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0; /* RTL alignment */
+    background: white;
+    min-width: 220px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 15px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    z-index: 1001;
+    text-align: right;
+}
+
+/* Removed hover effect for click interaction */
+/* .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+} */
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: var(--dark-black);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1rem;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: #fff8e1;
+    color: var(--primary-brown);
+    padding-right: 25px; /* Slight movement on hover */
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
@@ -321,17 +376,6 @@ nav a:hover {
 }
 
 /* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Categories Section */
 .section-title {
     text-align: center;

@@ -1,7 +1,6 @@
 import { store } from './state.js';
 import { products } from './products-data.js';
 import { renderPagination } from './pagination.js';
-
 function getRandomProductImage() {
   const imgs = ['images/product-3.jpg', 'images/product-4.jpg'];
   return imgs[Math.floor(Math.random() * imgs.length)];
@@ -14,6 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     // Initialize Store
     store.setProducts(products);
+
+    // Dropdown Toggle Logic
+    const dropdownToggles = document.querySelectorAll('.nav-item .nav-link');
+    
+    dropdownToggles.forEach(toggle => {
+        if (toggle.nextElementSibling && toggle.nextElementSibling.classList.contains('dropdown-menu')) {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const dropdownMenu = toggle.nextElementSibling;
+                dropdownMenu.classList.toggle('show');
+            });
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        const dropdowns = document.querySelectorAll('.dropdown-menu.show');
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.parentElement.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    });
 
     // Subscribe to state changes
     store.subscribe(state => {
